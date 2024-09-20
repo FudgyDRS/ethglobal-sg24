@@ -1,0 +1,10 @@
+.env
+.env.prod
+.env.dev
+.secret
+.private
+
+/node_modules
+/lib
+
+.package-lock.json
