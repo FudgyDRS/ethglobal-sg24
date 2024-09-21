@@ -1,0 +1,12 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/FudgyDRS/ethglobal-sg24.git
+	branch = dev
+[submodule "backend"]
+	path = backend
+	url = https://github.com/FudgyDRS/ethglobal-sg24.git
+	branch = dev
+[submodule "contracts"]
+	path = contracts
+	url = https://github.com/FudgyDRS/ethglobal-sg24.git
+	branch = dev
