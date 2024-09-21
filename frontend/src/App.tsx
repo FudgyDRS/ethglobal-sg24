@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import { execHaloCmdWeb } from '@arx-research/libhalo/api/web';
 
@@ -37,11 +35,11 @@ createAppKit({
 });
 
 function App() {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
   const modal = useAppKit();
-  const state = useAppKitState();
-  const { themeMode, themeVariables, setThemeMode } = useAppKitTheme();
-  const events = useAppKitEvents();
+  //const state = useAppKitState();
+  const { themeMode, setThemeMode } = useAppKitTheme();
+  //const events = useAppKitEvents();
   const [statusText, setStatusText] = useState('Click on the button');
 
   const btnClick = async () =>  {
@@ -58,9 +56,11 @@ function App() {
       res = await execHaloCmdWeb(command);
       // the command has succeeded, display the result to the user
       setStatusText(JSON.stringify(res, null, 4));
+      toast.info(JSON.stringify(res, null, 4));
     } catch (e) {
       // the command has failed, display error to the user
       setStatusText('Error: ' + String(e));
+      toast.error('Error: ' + String(e))
     }
   }
 
