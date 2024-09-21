@@ -24,7 +24,7 @@ remappings = [
 fs_permissions = [{ access = "read-write", path = ".secret"}, { access ="read", path="./out/"}]
 gas_reports = ["*"]
 ffi = true 
-solc = "0.8.23"
+solc = "0.8.24"
 optimize = true
 optimizer_runs = 100000
 via_ir = true
