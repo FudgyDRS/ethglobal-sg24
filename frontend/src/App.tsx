@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { execHaloCmdWeb } from '@arx-research/libhalo/api/web';
 
-import { createAppKit, useAppKit, useAppKitEvents, useAppKitState, useAppKitTheme } from '@reown/appkit/react';
+import { createAppKit, useAppKit, useAppKitTheme } from '@reown/appkit/react';
 import { EthersAdapter } from '@reown/appkit-adapter-ethers';
 import { mainnet, arbitrum } from '@reown/appkit/networks';
 import { ToastContainer, toast } from 'react-toastify';
