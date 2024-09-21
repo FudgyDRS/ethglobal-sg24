@@ -1,0 +1,48 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+sender = '0xc7183455a4C133Ae270771860664b6B7ec320bB1'
+tx_origin = '0xc7183455a4C133Ae270771860664b6B7ec320bB1'
+remappings = [
+    "ds-test/=lib/forge-std/lib/ds-test/src/",
+    "forge-std/=lib/forge-std/src/",
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+    "@oppenzeppelin-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+    "account-abstraction/=lib/account-abstraction/contracts/",
+    "@4337/=lib/account-abstraction/contracts/",
+    "@utils/=src/utils/",
+    "@interfaces/=src/interfaces/",
+    "@libraries/=src/libraries/",
+    "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+    "openzeppelin-contracts/=lib/openzeppelin-contracts/",
+]
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+fs_permissions = [{ access = "read-write", path = ".secret"}, { access ="read", path="./out/"}]
+gas_reports = ["*"]
+ffi = true 
+solc = "0.8.23"
+optimize = true
+optimizer_runs = 100000
+via_ir = true
+
+[rpc_endpoints]
+PUBLIC_TESTNET_RPC_SEPOLIA  = "https://ethereum-sepolia.publicnode.com"
+PUBLIC_TESTNET_RPC_HOLESKY  = "https://ethereum-holesky-rpc.publicnode.com"
+PUBLIC_TESTNET_RPC_BITLAYER = "https://testnet-rpc.bitlayer.org"
+PUBLIC_TESTNET_RPC_BOTANIX  = "https://node.botanixlabs.dev"
+PUBLIC_TESTNET_RPC_CITREA   = "https://rpc.devnet.citrea.xyz"
+
+[etherscan]
+# mumbai = { key = "" }
+
+[fmt]
+line_length = 120
+multiline_func_header = "params_first"
+number_underscore="thousands"
+# handle sorting of imports
+
+ignored_error_codes = ["unused-return"]

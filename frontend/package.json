@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@arx-research/libhalo": "^1.8.3",
     "@coinbase/wallet-sdk": "^4.0.4",
     "@reown/appkit": "^1.0.2",
     "@reown/appkit-adapter-ethers": "^1.0.2",

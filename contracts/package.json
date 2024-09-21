@@ -1,0 +1,17 @@
+{
+  "name": "crosschain-contracts",
+  "version": "1.0.0",
+  "directories": {
+    "lib": "lib",
+    "test": "test",
+    "src": "src",
+    "script": "script"
+  },
+  "scripts": {
+    "solhint": "solhint --config .solhint.json --ignore-path .solhintignore --max-warnings 0 \"src/*.sol\""
+  },
+  "dependencies": {
+    "solhint": "^3.3.7",
+    "solhint-plugin-chainlink-solidity": "npm:@chainlink/solhint-plugin-chainlink-solidity@^1.0.0"
+  }
+}
