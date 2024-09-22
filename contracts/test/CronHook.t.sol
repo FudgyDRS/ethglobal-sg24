@@ -34,10 +34,6 @@ contract CounterTest is Test {
 
     function setUp() public {
         // creates the pool manager, utility routers, and test tokens
-        deployFreshManagerAndRouters();
-        deployMintAndApprove2Currencies();
-
-        deployAndApprovePosm(manager);
 
         // Deploy the hook to an address with the correct flags
         address flags = address(

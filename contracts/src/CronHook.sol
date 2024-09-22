@@ -2,10 +2,10 @@
 pragma solidity >=0.8.19;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
+import {IPoolManager, PoolKey} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
 import {Hooks} from "@uniswap/v4-core/src/libraries/Hooks.sol";
 
-import {BaseHook} from "./BaseHook.sol";
+import {BaseHook} from "@uniswap/v4-periphery/src/base/hooks/BaseHook.sol";
 
 /**
  * @title An interface for checking whether an address has a valid kycNFT token
@@ -21,6 +21,7 @@ interface IKycValidity {
  * Execute small function calls
  */
 contract CronHook is BaseHook, Ownable {
+
     IKycValidity public kycValidity;
     address private _preKycValidity;
     uint256 private _setKycValidityReqTimestamp;
@@ -65,6 +66,11 @@ contract CronHook is BaseHook, Ownable {
         _;
     }
 
+    modifier poolManagerOnly() {
+        if (msg.sender != address(poolManager)) revert NotPoolManager();
+        _;
+    }
+
     function addCronJob(address to, bytes4 selector, uint256 gasCost, bytes32 payload) canPost(gasCost) external {
       cronJobs[nonce++] = cronJob(to, selector, gasCost, payload);
       jobsLeft++;
@@ -99,7 +105,7 @@ contract CronHook is BaseHook, Ownable {
 
     function afterSwap(
         address,
-        IPoolManager.PoolKey calldata,
+        PoolKey calldata,
         IPoolManager.SwapParams calldata
     ) external view override poolManagerOnly returns (bytes4) {
       bytes memory cron = cronJobs[currentJob++];
